@@ -1,0 +1,67 @@
+## to see sql code ##
+python manage.py sqlmigrate blog 0001 -> this number is the number that you get when you execute makemigrations
+
+## to open shell in terminal ##
+python manage.py shell
+
+### what you can do in shell ###
+>>>from blog.models import Post
+>>>from  django.contrib.auth.models import User
+>>> User.objects.all()
+<QuerySet [<User: mrugank>, <User: mayank>]>
+>>> User.objects.first()
+<User: mrugank>
+>>> User.objects.filter(username='mrugank')
+<QuerySet [<User: mrugank>]>
+>>> User.objects.filter(username='mrugank').first()
+<User: mrugank>
+>>> user = User.objects.filter(username='mrugank').first()
+>>> user.id
+1
+>>> user.pk --> pk stands for primarykey
+1
+>>> user = User.objects.get(id=1)
+>>> user
+<User: mrugank>
+>>> Post.objects.all()
+<QuerySet []>
+>>> post_1 = Post(title= 'title 1', content= 'content 1', author_name=user)
+>>> post_1.save()
+<Post: Post object (1)>
+>>> "will have to use magic funcs in class to see the post data"
+>>> post_1 = Post.objects.first()
+>>> post_1.content
+'content 1'
+>>> post_2 = Post(title= 'title 2', content= 'content 2', author_name_id=user.id)
+>>> post_2.save()
+>>> post_1.published_date
+datetime.datetime(2020, 5, 14, 21, 22, 39, 602981, tzinfo=<UTC>)
+>>> post_1.author_name
+<User: mrugank>
+>>> post_1.author_name.email
+'mrugankray@gmail.com'
+>>> user.post_set.all()
+"You will get a query set but here i ahve used a magic function which should return string but i am returning a dictionary so this command returns an error"
+>>> user.post_set.create(title= 'title 2', content= 'content 2')
+>>> Post.objects.all()
+<QuerySet [<Post: title 1>, <Post: title 2>, <Post: title 2>]>
+>>> post_3 = Post.objects.filter(id=3).first()
+>>> post_3.content
+'content 2'
+>>> post_3.published_date
+datetime.datetime(2020, 5, 14, 21, 57, 41, 694051, tzinfo=<UTC>)
+
+### after creating profile model to upload files ###
+>>> user = User.objects.filter(username='mrugank').first()
+>>> user
+<User: mrugank>
+>>> user.profile
+<Profile: mrugank Profile>
+>>> user.profile.image
+<ImageFieldFile: profile_pics/2.jpg>
+>>> user.profile.image.width
+648
+>>> user.profile.image.size
+114370 --> in bytes
+>>> user.profile.image.url
+'profile_pics/2.jpg'
