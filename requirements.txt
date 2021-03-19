@@ -12,7 +12,7 @@ Django==3.0.4
 django-crispy-forms==1.9.1
 django-phonenumber-field==4.0.0
 django-rest-knox==4.1.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 docproduct==0.2.0
 faiss==1.5.3
 gast==0.2.2
