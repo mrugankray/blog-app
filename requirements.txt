@@ -62,7 +62,7 @@ sklearn==0.0
 sqlparse==0.3.1
 tb-nightly==1.14.0a20190301
 tensorboard==1.12.2
-tensorflow-gpu==2.0.0a0
+tensorflow-gpu==2.7.2
 termcolor==1.1.0
 tf-estimator-nightly==1.14.0.dev2019030115
 tqdm==4.42.1
