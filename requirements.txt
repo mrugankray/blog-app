@@ -22,7 +22,7 @@ gpt2-estimator==0.1.0
 grpcio==1.27.2
 h5py==2.10.0
 intel-openmp==2020.0.133
-joblib==0.14.1
+joblib==1.2.0
 Keras-Applications==1.0.8
 keras-embed-sim==0.3.0
 keras-layer-normalization==0.11.0
